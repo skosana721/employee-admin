@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-const useForm = () => {
+const useForm = (validate) => {
   const [formInfo, setFormInfo] = useState({
     name: "",
     surname: "",
@@ -14,6 +14,7 @@ const useForm = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setErrors(validate(formInfo));
   };
   return { formInfo, errors, handleChange, handleSubmit };
 };
