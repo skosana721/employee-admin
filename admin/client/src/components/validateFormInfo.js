@@ -6,7 +6,7 @@ export const validFormInfo = (form) => {
   if (!form.surname.trim()) {
     errors.surname = `Surname is required`;
   }
-  if (!form.position.trims()) {
+  if (!form.position.trim()) {
     errors.position = `Job position is required`;
   }
   if (!form.salary) {
