@@ -5,7 +5,7 @@ const EmployeeForm = () => {
   const { handleChange, formInfo, errors, handleSubmit } = useForm();
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Enter employee name" />
         <input type="text" placeholder="Enter employee surname" />
         <input type="text" placeholder="Enter employee ID number" />
