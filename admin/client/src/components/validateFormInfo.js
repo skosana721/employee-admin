@@ -9,6 +9,9 @@ export const validFormInfo = (form) => {
   if (!form.position.trim()) {
     errors.position = `Job position is required`;
   }
+  if (!form.idNumber) {
+    errors.idNumber = `ID number is required`;
+  }
   if (!form.salary) {
     errors.salary = `Salary is required`;
   } else if (form.salary < 3500) {
