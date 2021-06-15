@@ -25,7 +25,7 @@ const EmployeeForm = () => {
         />
         {errors.surname && <Alert color="danger">{errors.surname}</Alert>}
         <input
-          type="text"
+          type="number"
           name="idNumber"
           onChange={handleChange}
           placeholder="Enter employee ID number"
@@ -33,7 +33,7 @@ const EmployeeForm = () => {
         />
         {errors.idNumber && <Alert color="danger">{errors.idNumber}</Alert>}
         <input
-          type="number"
+          type="text"
           name="position"
           onChange={handleChange}
           placeholder="Enter employee job position"
