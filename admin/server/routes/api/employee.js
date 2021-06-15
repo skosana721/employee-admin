@@ -3,3 +3,4 @@ const employeeRoutes = (app) => {
     res.send("It works");
   });
 };
+module.exports = { employeeRoutes };
