@@ -32,6 +32,7 @@ const EmployeeForm = () => {
           value={formInfo.idNumber}
         />
         {errors.idNumber && <Alert color="danger">{errors.idNumber}</Alert>}
+        {errors.idNumber && <Alert color="danger">{errors.idNumber}</Alert>}
         <input
           type="number"
           name="position"
