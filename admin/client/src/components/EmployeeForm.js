@@ -1,6 +1,8 @@
 import React from "react";
+import useForm from "./useForm";
 
 const EmployeeForm = () => {
+  const { handleChange, formInfo, errors, handleSubmit } = useForm();
   return (
     <div>
       <form>
