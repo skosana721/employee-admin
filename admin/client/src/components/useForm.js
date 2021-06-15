@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 const useForm = () => {
-  const [formInfo, setformInfo] = useState({
+  const [formInfo, setFormInfo] = useState({
     name: "",
     surname: "",
     idNumber: "",
@@ -8,7 +8,14 @@ const useForm = () => {
     salary: "",
   });
   const [errors, setErrors] = useState({});
-  return { formInfo, errors };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormInfo({ ...formInfo, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  return { formInfo, errors, handleChange, handleSubmit };
 };
 
 export default useForm;
