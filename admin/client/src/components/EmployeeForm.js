@@ -1,7 +1,7 @@
 import React from "react";
 import useForm from "./useForm";
 import { validFormInfo } from "./validateFormInfo";
-
+import { Alert } from "reactstrap";
 const EmployeeForm = () => {
   const { handleChange, formInfo, errors, handleSubmit } =
     useForm(validFormInfo);
@@ -15,6 +15,7 @@ const EmployeeForm = () => {
           placeholder="Enter employee name"
           value={formInfo.name}
         />
+
         <input
           type="text"
           name="surname"
