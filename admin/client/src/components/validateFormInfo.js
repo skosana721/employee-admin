@@ -15,7 +15,7 @@ export const validFormInfo = (form) => {
   if (!form.salary) {
     errors.salary = `Salary is required`;
   } else if (form.salary < 3500) {
-    errors.salary = `Salary is below the minimum, <p style='color:blue'>3500</p> `;
+    errors.salary = `Salary is below the minimum, 3500 `;
   }
 
   return errors;
