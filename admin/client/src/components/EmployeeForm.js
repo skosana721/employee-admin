@@ -15,7 +15,7 @@ const EmployeeForm = () => {
           placeholder="Enter employee name"
           value={formInfo.name}
         />
-
+        {errors.name && <Alert>{errors.name}</Alert>}
         <input
           type="text"
           name="surname"
@@ -23,6 +23,7 @@ const EmployeeForm = () => {
           placeholder="Enter employee surname"
           value={formInfo.surname}
         />
+        {errors.surname && <Alert>{errors.surname}</Alert>}
         <input
           type="text"
           name="idNumber"
@@ -30,6 +31,7 @@ const EmployeeForm = () => {
           placeholder="Enter employee ID number"
           value={formInfo.idNumber}
         />
+        {errors.idNumber && <Alert>{errors.idNumber}</Alert>}
         <input
           type="number"
           name="position"
@@ -37,6 +39,7 @@ const EmployeeForm = () => {
           placeholder="Enter employee job position"
           value={formInfo.position}
         />
+        {errors.position && <Alert>{errors.position}</Alert>}
         <input
           type="number"
           name="salary"
@@ -44,6 +47,7 @@ const EmployeeForm = () => {
           placeholder="Enter employee salary"
           value={formInfo.salary}
         />
+        {errors.salary && <Alert>{errors.salary}</Alert>}
         <button type="submit">Submit</button>
       </form>
     </div>
