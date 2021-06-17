@@ -25,5 +25,20 @@ const employeeRoutes = (app) => {
       res.status(400).send(error);
     }
   });
+  app.put("/employee/:id", async (req, res) => {
+    try {
+      const employeeToUpdate = await Employee.updateOne(
+        { _id: req.params.id },
+        {
+          surname: req.body.surname,
+          position: req.body.position,
+          salary: req.body.salary,
+        }
+      );
+      res.status(201).send(employeeToUpdate);
+    } catch (error) {
+      res.status(400).send(error);
+    }
+  });
 };
 module.exports = { employeeRoutes };
