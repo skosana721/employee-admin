@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
 const { employeeRoutes } = require("./routes/api/employee");
 
+app.use(cors());
 require("dotenv/config");
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
