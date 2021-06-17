@@ -1,8 +1,13 @@
 const Employee = require("../../model/employee");
 
 const employeeRoutes = (app) => {
-  app.get("/employee", (req, res) => {
-    res.send("It works");
+  app.get("/employee", async (req, res) => {
+    try {
+      const results = await Employee.find();
+      res.status(200).send(results);
+    } catch (error) {
+      res.status(404).send(results);
+    }
   });
   app.post("/employee", async (req, res) => {
     const { name, surname, idNumber, position, salary } = req.body;
