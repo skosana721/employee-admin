@@ -1,4 +1,4 @@
-import { GET_EMPLOYEES } from "../actionTypes/employee";
+import { ADD_EMPLOYEE, GET_EMPLOYEES } from "../actionTypes/employee";
 
 const initialState = {
   employees: [],
@@ -10,6 +10,8 @@ export const employeeReducer = (state = initialState, action) => {
         ...state,
         employees: action.payload,
       };
+    case ADD_EMPLOYEE:
+      return { ...state, employee: [...state.employees, action.payload] };
     default:
       return state;
   }
