@@ -23,15 +23,13 @@ const DisplayEmployees = () => {
             <th>Salary</th>
           </tr>
         </thead>
-        <tbody>
-          {employees.map((employee) => {
-            return (
-              <div>
-                <Employee key={employee._id} {...employee} />
-              </div>
-            );
-          })}
-        </tbody>
+        {employees.map((employee) => {
+          return (
+            <tbody>
+              <Employee key={employee._id} {...employee} />
+            </tbody>
+          );
+        })}
       </Table>
     </div>
   );
