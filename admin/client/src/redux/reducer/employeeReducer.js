@@ -8,7 +8,7 @@ export const employeeReducer = (state = initialState, action) => {
     case GET_EMPLOYEES:
       return {
         ...state,
-        employees: [...state.employees, action.payload],
+        employees: action.payload,
       };
     default:
       return state;
