@@ -11,6 +11,7 @@ const DisplayEmployees = () => {
   useEffect(() => {
     dispatch(getEmployees());
   }, []);
+
   return (
     <Container>
       <Table hover>
@@ -21,6 +22,8 @@ const DisplayEmployees = () => {
             <th>ID Number</th>
             <th>Position</th>
             <th>Salary</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
