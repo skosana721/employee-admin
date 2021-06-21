@@ -11,7 +11,7 @@ export const employeeReducer = (state = initialState, action) => {
         employees: action.payload,
       };
     case ADD_EMPLOYEE:
-      return { ...state, employee: [...state.employees, action.payload] };
+      return { ...state, employees: [...state.employees, action.payload] };
     default:
       return state;
   }
