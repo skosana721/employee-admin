@@ -26,14 +26,20 @@ export const addEmployee = (form) => {
     });
   };
 };
-const updateEmployee = (obj) => {
+export const updateEmployee = (obj) => {
   const { id, surname, salary, position } = obj;
   return (dispatch) => {
-    axios.put("http://localhost:5050/employee/${id}").then((res) => {
-      dispatch({
-        type: UPDATE_EMPLOYEE,
-        payload: id,
+    axios
+      .put(`http://localhost:5050/employee/${id}`, {
+        surname,
+        salary,
+        position,
+      })
+      .then((res) => {
+        dispatch({
+          type: UPDATE_EMPLOYEE,
+          payload: id,
+        });
       });
-    });
   };
 };
