@@ -1,5 +1,9 @@
 import axios from "axios";
-import { ADD_EMPLOYEE, GET_EMPLOYEES } from "../actionTypes/employee";
+import {
+  ADD_EMPLOYEE,
+  GET_EMPLOYEES,
+  UPDATE_EMPLOYEE,
+} from "../actionTypes/employee";
 
 export const getEmployees = () => {
   return (dispatch) => {
@@ -18,6 +22,17 @@ export const addEmployee = (form) => {
       dispatch({
         type: ADD_EMPLOYEE,
         payload: res.data,
+      });
+    });
+  };
+};
+const updateEmployee = (obj) => {
+  const { id, surname, salary, position } = obj;
+  return (dispatch) => {
+    axios.put("http://localhost:5050/employee/${id}").then((res) => {
+      dispatch({
+        type: UPDATE_EMPLOYEE,
+        payload: id,
       });
     });
   };
