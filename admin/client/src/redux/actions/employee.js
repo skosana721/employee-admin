@@ -38,7 +38,7 @@ export const updateEmployee = (obj) => {
       .then((res) => {
         dispatch({
           type: UPDATE_EMPLOYEE,
-          payload: id,
+          payload: obj,
         });
       });
   };
