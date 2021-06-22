@@ -17,8 +17,10 @@ const useForm = (validate) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setErrors(validate(formInfo));
   };
+  console.log(errors);
   useEffect(() => {
     if (Object.keys(errors).length === 0) {
       dispatch(addEmployee(formInfo));
