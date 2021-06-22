@@ -49,8 +49,8 @@ const EditModal = ({ id, surname, position, salary }) => {
             <FormGroup>
               <Label for="position">Job position</Label>
               <Input
-                type="position"
-                name="text"
+                type="text"
+                name="position"
                 onChange={handleChange}
                 id="position"
                 value={formInfo.position}
