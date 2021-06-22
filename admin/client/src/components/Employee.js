@@ -1,7 +1,15 @@
 import React from "react";
 import EditModal from "./EditModal";
 
-const Employee = ({ _id, name, surname, idNumber, position, salary }) => {
+const Employee = ({
+  _id,
+  name,
+  surname,
+  idNumber,
+  position,
+  salary,
+  calculateSalary,
+}) => {
   return (
     <tr>
       <td>{name}</td>
@@ -15,6 +23,8 @@ const Employee = ({ _id, name, surname, idNumber, position, salary }) => {
         position={position}
         salary={salary}
       />
+      <button onClick={() => calculateSalary(_id)}>Annual</button>
+      <p>{calculateSalary}</p>
     </tr>
   );
 };
