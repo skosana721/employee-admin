@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getEmployees } from "../redux/actions/employee";
 import Employee from "./Employee";
@@ -7,11 +7,19 @@ import { Table, Container } from "reactstrap";
 const DisplayEmployees = () => {
   const employees = useSelector((state) => state.employees);
   const dispatch = useDispatch();
-
+  const [annual, setAnnual] = useState(0);
   useEffect(() => {
     dispatch(getEmployees());
-  }, []);
-
+  }, [dispatch]);
+  const calculateSalary = (id) => {
+    let result;
+    for (let i in employees) {
+      if (employees[i]._id === id) {
+        result = employees[i].salary * 12;
+      }
+    }
+    setAnnual(result);
+  };
   return (
     <Container>
       <Table hover>
@@ -28,10 +36,17 @@ const DisplayEmployees = () => {
         </thead>
         <tbody>
           {employees.map((employee) => {
-            return <Employee key={employee._id} {...employee} />;
+            return (
+              <Employee
+                key={employee._id}
+                {...employee}
+                calculateSalary={calculateSalary}
+              />
+            );
           })}
         </tbody>
       </Table>
+      <p>{annual}</p>
     </Container>
   );
 };
