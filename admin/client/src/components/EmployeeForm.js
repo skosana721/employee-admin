@@ -1,13 +1,14 @@
 import React from "react";
 import useForm from "./useForm";
 import { validFormInfo } from "./validateFormInfo";
-import { Alert } from "reactstrap";
+
 const EmployeeForm = () => {
   const { handleChange, formInfo, errors, handleSubmit } =
     useForm(validFormInfo);
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
+        {errors.name && <div className="form-errors">{errors.name}</div>}
         <input
           type="text"
           name="name"
@@ -15,7 +16,7 @@ const EmployeeForm = () => {
           placeholder="Enter employee name"
           value={formInfo.name}
         />
-        {errors.name && <Alert color="danger">{errors.name}</Alert>}
+        {errors.surname && <div className="form-errors">{errors.surname}</div>}
         <input
           type="text"
           name="surname"
@@ -23,7 +24,9 @@ const EmployeeForm = () => {
           placeholder="Enter employee surname"
           value={formInfo.surname}
         />
-        {errors.surname && <Alert color="danger">{errors.surname}</Alert>}
+        {errors.idNumber && (
+          <div className="form-errors">{errors.idNumber}</div>
+        )}
         <input
           type="number"
           name="idNumber"
@@ -31,7 +34,9 @@ const EmployeeForm = () => {
           placeholder="Enter employee ID number"
           value={formInfo.idNumber}
         />
-        {errors.idNumber && <Alert color="danger">{errors.idNumber}</Alert>}
+        {errors.position && (
+          <div className="form-errors">{errors.position}</div>
+        )}
         <input
           type="text"
           name="position"
@@ -39,7 +44,11 @@ const EmployeeForm = () => {
           placeholder="Enter employee job position"
           value={formInfo.position}
         />
-        {errors.position && <Alert color="danger">{errors.position}</Alert>}
+        {errors.salary && (
+          <div className="form-errors" fade={true}>
+            {errors.salary}
+          </div>
+        )}
         <input
           type="number"
           name="salary"
@@ -47,11 +56,6 @@ const EmployeeForm = () => {
           placeholder="Enter employee salary"
           value={formInfo.salary}
         />
-        {errors.salary && (
-          <Alert color="danger" fade={true}>
-            {errors.salary}
-          </Alert>
-        )}
         <button type="submit">Submit</button>
       </form>
     </div>
