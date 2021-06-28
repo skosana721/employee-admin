@@ -1,19 +1,28 @@
 import "./App.css";
 import EmployeeForm from "./components/EmployeeForm";
 import DisplayEmployees from "./components/DisplayEmployees";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+import { history } from "./history";
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router history={history}>
         <NavBar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/EmployeeForm" exact component={EmployeeForm} />
-          <Route path="/displayEmployees" component={DisplayEmployees} />
-        </Switch>
+        {/* <Switch> */}
+        <Route path="/" exact component={(props) => <Home {...props} />} />
+        <Route
+          path="/EmployeeForm"
+          exact
+          component={(props) => <EmployeeForm {...props} />}
+        />
+        <Route
+          path="/displayEmployees"
+          exact
+          component={(props) => <DisplayEmployees {...props} />}
+        />
+        {/* </Switch> */}
       </Router>
     </div>
   );
