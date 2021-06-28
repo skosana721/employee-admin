@@ -1,4 +1,5 @@
 import axios from "axios";
+import { history } from "../../history";
 import {
   ADD_EMPLOYEE,
   GET_EMPLOYEES,
@@ -18,11 +19,13 @@ export const getEmployees = () => {
 
 export const addEmployee = (form) => {
   return (dispatch) => {
+    history.push("/displayEmployees");
     axios.post("http://localhost:5050/employee", form).then((res) => {
       dispatch({
         type: ADD_EMPLOYEE,
         payload: res.data,
       });
+      console.log("add employee");
     });
   };
 };
