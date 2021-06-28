@@ -24,6 +24,13 @@ const useForm = (validate) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0) {
       dispatch(addEmployee(formInfo));
+      setFormInfo({
+        name: "",
+        surname: "",
+        idNumber: "",
+        position: "",
+        salary: "",
+      });
     }
   }, [errors]);
   return { formInfo, errors, handleChange, handleSubmit };
