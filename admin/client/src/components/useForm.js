@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../redux/actions/employee";
+import { history } from "../history.js";
 const useForm = (validate) => {
   const [formInfo, setFormInfo] = useState({
     name: "",
@@ -9,7 +10,9 @@ const useForm = (validate) => {
     position: "",
     salary: "",
   });
+
   const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,12 +20,12 @@ const useForm = (validate) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setIsSubmitted(true);
     setErrors(validate(formInfo));
   };
 
   useEffect(() => {
-    if (Object.keys(errors).length === 0) {
+    if (Object.keys(errors).length === 0 && isSubmitted) {
       dispatch(addEmployee(formInfo));
       setFormInfo({
         name: "",
