@@ -1,10 +1,10 @@
 import React from "react";
 import useForm from "./useForm";
 import { validFormInfo } from "./validateFormInfo";
-
 const EmployeeForm = () => {
   const { handleChange, formInfo, errors, handleSubmit } =
     useForm(validFormInfo);
+
   return (
     <div>
       <form onSubmit={handleSubmit} className="form">
